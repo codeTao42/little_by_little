@@ -1,8 +1,32 @@
 <div class="container-fluid">
 	<div class="row">
 	  <div class="col-xs-12"><%= @board.title %></div>
-	  <div class="col-xs-12 col-sm-6">Ready</div>
-	  <div class="col-xs-6 col-sm-3">Doing</div>
-	  <div class="col-xs-6 col-sm-3">Done</div>
+	  <div class="col-xs-12 col-sm-6">
+      <div>Ready</div>
+      <hr>
+      <ul>
+        <% @board.cards.where(state: :ready).each do |card| %>
+          <li><%= card.title %></li>
+        <% end %>
+      </ul>
+    </div>
+	  <div class="col-xs-6 col-sm-3">
+      <div>Doing</div>
+      <hr>
+      <ul>
+        <% @board.cards.where(state: :doing).each do |card| %>
+          <li><%= card.title %></li>
+        <% end %>  
+       </ul> 
+    </div>
+	  <div class="col-xs-6 col-sm-3">
+      <div>Done</div>
+      <hr>
+      <ul>
+        <% @board.cards.where(state: :done).each do |card| %>
+          <li><%= card.title %></li>
+        <% end %>
+      </ul>
+    </div>
 	</div>
 </div>
