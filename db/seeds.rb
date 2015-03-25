@@ -1,3 +1,3 @@
 Board.destroy_all
-Board.create! title: "Hi!"
+Board.create! title: "Building Little by Little"
 
