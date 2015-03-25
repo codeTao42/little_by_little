@@ -5,31 +5,19 @@
 	  <div class="col-xs-12 col-sm-6">
       <div>Ready</div>
       <hr>
-      <ul>
-        <% @board.cards.ready.each do |card| %>
-          <li><%= card.title %></li>
-        <% end %>
-      </ul>
+      <%= render @board.cards.ready %>
     </div>
 
 	  <div class="col-xs-6 col-sm-3">
       <div>Doing</div>
       <hr>
-      <ul>
-        <% @board.cards.doing.each do |card| %>
-          <li><%= card.title %></li>
-        <% end %>  
-       </ul> 
+      <%= render @board.cards.doing %>
     </div>
 
 	  <div class="col-xs-6 col-sm-3">
       <div>Done</div>
       <hr>
-      <ul>
-        <% @board.cards.done.each do |card| %>
-          <li><%= card.title %></li>
-        <% end %>
-      </ul>
+      <%= render @board.cards.done %>
     </div>
 
 	</div>
