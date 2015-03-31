@@ -1,3 +1,11 @@
-<div title="butthead"><%= card.title %></div>
+<div class="card">
+  <div class="title"><%= card.title %></div>
 
-<%= state_change_links(card) %>
+  <div class="description">
+    <%= card.description %>
+  </div>
+
+  <div class="nav">
+    <%= state_change_links(card) %>
+  </div>
+</div>
