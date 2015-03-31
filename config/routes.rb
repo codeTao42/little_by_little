@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  post 'ready/:id', to: 'cards#ready'
-  post 'doing/:id', to: 'cards#doing'
-  post 'done/:id', to: 'cards#done'
+  post 'ready/:id', to: 'cards#ready', as: 'ready'
+  post 'doing/:id', to: 'cards#doing', as: 'doing'
+  post 'done/:id', to: 'cards#done', as: 'done'
 end
