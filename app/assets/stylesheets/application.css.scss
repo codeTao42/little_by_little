@@ -16,3 +16,9 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "card";
+@import "board";
+
+.navbar-brand {
+  height: 75px;
+}
