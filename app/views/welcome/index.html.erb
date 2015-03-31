@@ -3,19 +3,19 @@
 	  <div class="col-xs-12"><%= @board.title %></div>
 
 	  <div class="col-xs-12 col-sm-6">
-      <div>Ready</div>
+      <div class="state ready">Ready</div>
       <hr>
       <%= render @board.cards.ready %>
     </div>
 
 	  <div class="col-xs-6 col-sm-3">
-      <div>Doing</div>
+      <div class="state doing">Doing</div>
       <hr>
       <%= render @board.cards.doing %>
     </div>
 
 	  <div class="col-xs-6 col-sm-3">
-      <div>Done</div>
+      <div class="state done">Done</div>
       <hr>
       <%= render @board.cards.done %>
     </div>
