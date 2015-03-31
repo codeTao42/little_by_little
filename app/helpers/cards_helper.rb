@@ -12,19 +12,19 @@ module CardsHelper
 
   def ready_button(card)
     button_to(ready_path(card)) do
-      content_tag(:i,'', class: 'glyphicon glyphicon-alert') 
+      content_tag(:i,'', class: 'glyphicon glyphicon-alert', title: 'Ready', data: {toggle: 'tooltip'}) 
     end
   end
 
   def doing_button(card)
     button_to(doing_path(card)) do
-      content_tag(:i,'', class: 'glyphicon glyphicon-screenshot')
+      content_tag(:i,'', class: 'glyphicon glyphicon-screenshot', title: 'Doing', data: {toggle: 'tooltip'})
     end
   end
 
   def done_button(card)
     button_to(done_path(card)) do
-      content_tag(:i,'', class: 'glyphicon glyphicon-ok-circle')
+      content_tag(:i,'', class: 'glyphicon glyphicon-ok-circle', title: 'Done', data: {toggle: 'tooltip'})
     end
   end
 
