@@ -12,13 +12,29 @@
 <body>
 	<nav class="navbar navbar-inverse navbar-static-top">
     <div class="container-fluid">
-      <ul class="nav nav-pills navbar-left">
-        <li role="presentation"><a href="#">Sign up</a></li>
-        <li role="presentation"><a href="#">Sign in</a></li>
-      </ul>
+      <% if user_signed_in? %>
+        <ul class="nav nav-pills navbar-left">
+          <li role="presentation"><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+        </ul>
+      <% else %>
+        <ul class="nav nav-pills navbar-left">
+          <li role="presentation"><%= link_to 'Sign up', new_user_registration_path %></li>
+          <li role="presentation"><%= link_to 'Sign in', new_user_session_path %></li>
+        </ul>
+      <% end %>
+
+
+
       <%= image_tag "LittleByLittle_Logo.png", class: "navbar-brand navbar-right" %>
     </div>
   </nav>
+
+<% if notice %>
+  <p class="alert alert-success"><%= notice 'success' %></p>
+<% end %>
+<% if notice %>
+  <p class="alert alert-danger"><% alert %></p>
+<% end %>
 
 <%= yield %>
 
