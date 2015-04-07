@@ -35,6 +35,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Devise: Flexible authentication solution for Rails with Warden
+gem 'devise', '~> 3.4.1'
+
 # Heroku 
 gem 'rails_12factor', group: :production
 
