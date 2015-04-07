@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   
   def index    
-    @board = Board.first
+    @board = current_user.boards.first
   end
 end
