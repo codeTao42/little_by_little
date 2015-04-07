@@ -1,6 +1,8 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12 board-name"><%= @board.title %></div>
+    <div class="col-xs-12 board-name"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><%= @board.title %></button></div>
+
+
 
     <div class="col-xs-12 col-sm-6 state ready">
       <div class="name">Ready</div>
@@ -20,5 +22,27 @@
       <%= render @board.cards.done %>
     </div>
 
+  </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Rename this board</h4>
+      </div>
+      <%= form_for @board do |f| %>
+
+        <div class="modal-body">
+          <%= f.label :title %>
+          <%= f.text_field :title %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
