@@ -16,6 +16,11 @@
 
     <div class="col-xs-12 col-sm-6 state ready">
       <div class="name">Ready</div>
+
+      <button type="button" class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#cardCreate" aria-label="Card">
+        <% @card.title %>
+      </button>
+
       <hr>
       <%= render @board.cards.ready %>
     </div>
@@ -81,3 +86,31 @@
     </div>
   </div>
 </div>
+
+<!-- For new card -->
+<div class="modal fade" id="boardCreate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Name your new board:</h4>
+      </div>
+      <%= form_for Card.new do |f| %>
+
+        <div class="modal-body">
+          <%= f.label :title %>
+          <%= f.text_field :title %>
+
+          <%= f.label :description %>
+          <%= f.text_field :description %>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

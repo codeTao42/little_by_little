@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   after_create :initialize_board
 
+  
+
   private
 
   def initialize_board
@@ -18,4 +20,6 @@ class User < ActiveRecord::Base
     ])
 
   end
+
+
 end
