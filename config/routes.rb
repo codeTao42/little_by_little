@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   post 'ready/:id', to: 'cards#ready', as: 'ready'
   post 'doing/:id', to: 'cards#doing', as: 'doing'
   post 'done/:id', to: 'cards#done', as: 'done'
-  resources :boards
+  
+  resources :boards, :cards
 end
