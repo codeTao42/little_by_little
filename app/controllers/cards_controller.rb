@@ -7,10 +7,6 @@ class CardsController < ApplicationController
       redirect_to board_path(current_user)
     end
   end
-
-  def show
-    @card = boards.cards.find(params[:id])
-  end
   
   def ready
     card = Card.find(params[:id])
