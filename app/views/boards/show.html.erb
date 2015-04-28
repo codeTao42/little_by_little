@@ -16,6 +16,7 @@
 
     <div class="col-xs-12 col-sm-6 state ready">
       <div class="name">Ready</div>
+      <button type="button" class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#readyCreate" aria-label="New Card"></button>
       <hr>
       <%= render @board.cards.ready %>
     </div>
@@ -72,6 +73,51 @@
         <div class="modal-body">
           <%= f.label :title %>
           <%= f.text_field :title %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- For new cards -->
+<div class="modal fade" id="readyCreate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Make a new card:</h4>
+      </div>
+      <%= form_for @board.cards.new do |f| %>
+
+        <div class="modal-body">
+          <div class="#">
+            <%= f.label :title %>
+            <br>
+            <%= f.text_field :title %>
+          </div>
+          <div class="#">
+            <%= f.label :description %>
+            <br>
+            <%= f.text_area :description %>
+          </div>
+          <br>
+          <div class="#">
+            <%= f.radio_button :state, "ready" %>
+            <%= label_tag :state, "Ready" %>
+          </div>
+          <div class="#">
+            <%= f.radio_button :state, "doing" %>
+            <%= label_tag :state, "Doing" %>
+          </div>
+          <div class="#">
+            <%= f.radio_button :state, "done" %>
+            <%= label_tag :state, "Done" %>
+          </div>
+          <%= f.hidden_field :board_id%>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -1,5 +1,7 @@
 <div class="card">
   <div class="title"><%= card.title %></div>
+  
+  <button type="button" class="glyphicon glyphicon-remove" aria-label="Delete Card"><%= link_to "Delete", card_path(card), method: :delete %></button>
 
   <div class="description">
     <%= card.description %>
