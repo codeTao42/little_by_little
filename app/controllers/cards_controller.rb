@@ -30,6 +30,12 @@ class CardsController < ApplicationController
     redirect_to root_path
   end
 
+  def destroy
+    @card = Card.find(params[:id])
+    @card.destroy
+    redirect_to board_path(current_user)
+  end
+
   private
 
   def card_params
