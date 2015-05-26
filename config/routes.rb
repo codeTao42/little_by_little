@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   post 'done/:id', to: 'cards#done', as: 'done'
   
   resources :boards, :cards
+
 end

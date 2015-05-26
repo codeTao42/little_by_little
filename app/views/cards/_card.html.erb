@@ -1,7 +1,11 @@
 <div class="card">
   <div class="title"><%= card.title %></div>
-  
-  <button type="button" class="glyphicon glyphicon-remove" aria-label="Delete Card"><%= link_to "Delete", card_path(card), method: :delete %></button>
+
+  <button type="button" class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#edit-card-<%= card.id %>-form" aria-label="Edit Card"></button>
+
+  <%= link_to card_path(card), method: :delete do %>
+    <button type="button" class="glyphicon glyphicon-remove" aria-label="Delete Card"></button>
+  <% end %>
 
   <div class="description">
     <%= card.description %>
@@ -11,3 +15,48 @@
     <%= state_change_links(card) %>
   </div>
 </div>
+
+<div class="modal fade" id="edit-card-<%= card.id %>-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Edit this card:</h4>
+      </div>
+      <%= form_for card do |f| %>
+
+        <div class="modal-body">
+          <div class="#">
+            <%= f.label :title %>
+            <br>
+            <%= f.text_field :title %>
+          </div>
+          <div class="#">
+            <%= f.label :description %>
+            <br>
+            <%= f.text_area :description %>
+          </div>
+          <br>
+          <div class="#">
+            <%= f.radio_button :state, "ready" %>
+            <%= label_tag :state, "Ready" %>
+          </div>
+          <div class="#">
+            <%= f.radio_button :state, "doing" %>
+            <%= label_tag :state, "Doing" %>
+          </div>
+          <div class="#">
+            <%= f.radio_button :state, "done" %>
+            <%= label_tag :state, "Done" %>
+          </div>
+          <%= f.hidden_field :board_id%>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
